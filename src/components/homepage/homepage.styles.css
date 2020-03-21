@@ -1,0 +1,9 @@
+.homepage{
+    display: grid;
+    grid-template-areas:
+        'navbar'
+        'mt-wrapper';
+    grid-template-rows: 60px auto;
+    height: 100vh;
+    grid-gap: 10px;
+}
