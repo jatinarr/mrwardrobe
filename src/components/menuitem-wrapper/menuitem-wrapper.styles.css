@@ -1,14 +1,12 @@
 .menuitem-wrapper{
-    grid-area: mt-wrapper;
+    height: 100%;
     display: grid;
     grid-gap: 10px;
-    grid-template-columns: 33.33% 33.33% 33.33%;
-    padding: 30px;
+    grid-template-columns: 1fr 1fr 1fr;
 }
 
 .menuitem-wrapper > div{
     border-radius: 2px;
-    /* padding: 50px; */
     display: flex;
     align-items: center;
 }

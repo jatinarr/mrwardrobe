@@ -1,0 +1,62 @@
+.collection{
+    display: grid;
+    grid-template-areas: 
+    'coll-title'
+    'coll-items';
+    grid-gap: 10px;
+    margin-bottom: 40px;
+}
+
+.collection > .title{
+    grid-area: coll-title;
+    letter-spacing: 0.02em;
+    font-size: 25px;
+    font-weight: 100;
+}
+.collection .collection-items{
+    grid-area: coll-items;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 20px;
+}
+
+ .collection-item > .add-to-cart{
+    position: absolute;
+    display: flex;
+    background: transparent;
+    align-items: center;
+    justify-content: center;
+    bottom: 80px;
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.12s linear;
+}
+
+.collection-item:hover > .add-to-cart{
+    visibility: visible;
+    opacity: 1;
+}
+
+.collection-item:hover > .bgImage{
+    filter: brightness(80%);
+}
+
+.collection-item > .add-to-cart > .title{
+    padding: 20px;
+    background: white;
+    opacity: 0.8;
+    font-size: 20px;
+    font-weight: 600;
+    width: 75%;
+    text-align: center;
+    font-family: 'Open Sans Condensed', sans-serif;
+    cursor: pointer;
+    border: none
+}
+
+.collection-item > .add-to-cart > .title:hover{
+    background: black;
+    opacity: 0.6;
+    color: white;
+}

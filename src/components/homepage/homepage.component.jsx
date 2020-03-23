@@ -2,10 +2,9 @@
 
 import React from 'react'
 import './homepage.styles.css'
-import {Navbar} from 'components/navbar/navbar.component'
 import {MenuitemWrapper} from 'components/menuitem-wrapper/menuitem-wrapper.component'
 
-export class HomePage extends React.Component{
+class HomePage extends React.Component{
     constructor(){
         super()
         this.state = {
@@ -48,9 +47,10 @@ export class HomePage extends React.Component{
     render(){
         return(
             <div className='homepage'>
-                <Navbar />
                 <MenuitemWrapper menuitems={this.state.homepageMenuItems}/>
             </div>
         )
     } 
 }
+
+export default HomePage

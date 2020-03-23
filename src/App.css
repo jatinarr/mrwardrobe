@@ -1,3 +1,22 @@
+/* :root{
+    --fixed-component-height: 60px;
+    --dynamic-component-height: calc(100vh - var(--fixed-component-height));
+} */
+
 .app {
-  /* font-family: 'Open Sans Condensed', sans-serif; */
+    display: grid;
+    grid-template-areas:
+        'fixed-component'
+        'dynamic-component';
+    grid-template-rows:60px auto;
+    height: 100vh;
+    grid-gap: 10px;
+}
+
+.fixed-component{
+    grid-area: fixed-component;
+}
+
+.dynamic-component{
+    grid-area: dynamic-component;
 }

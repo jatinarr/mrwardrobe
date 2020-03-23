@@ -3,8 +3,9 @@
 import React from 'react'
 import './navbar.styles.css'
 import {Cart} from 'components/cart/cart.component'
+import {withRouter} from 'react-router-dom'
 
-export const Navbar = () => {
+const Navbar = () => {
     return(
         <div className='navbar'>
             <span className='left'>
@@ -20,3 +21,5 @@ export const Navbar = () => {
         </div>
     )
 }
+
+export default withRouter(Navbar)

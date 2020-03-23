@@ -1,0 +1,27 @@
+.collection-item{
+    display: grid;
+    grid-template-areas: 
+    'coll-item-img'
+    'coll-item-details';
+    position: relative
+}
+
+.collection-item .bgImage {
+    grid-area: coll-item-img;
+    height: 400px;
+    background-size: cover;
+}
+
+.collection-item .details {
+    grid-area: coll-item-details;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.collection-item .details .left{
+    float: left
+}
+
+.collection-item .details .right{
+    float: right
+}

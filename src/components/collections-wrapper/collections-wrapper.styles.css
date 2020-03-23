@@ -1,0 +1,7 @@
+.collections-wrapper{
+    height: 100%;
+}
+
+.collections-wrapper .title{
+    letter-spacing: 0.02em;
+}
