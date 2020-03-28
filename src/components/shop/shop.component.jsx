@@ -1,7 +1,7 @@
 import React from 'react'
 import SHOP_DATA from 'components/shop/shop.data'
 import './shop.styles.css'
-import CollectionItemWrapper from 'components/collections-wrapper/collections-wrapper.component'
+import CollectionWrapper from 'components/collections-wrapper/collections-wrapper.component'
 
 
 class ShopPage extends React.Component {
@@ -15,7 +15,7 @@ class ShopPage extends React.Component {
     render() {
         return(
             <div className='shop-page'>
-                <CollectionItemWrapper  collections={this.state.collections}/>
+                <CollectionWrapper  collections={this.state.collections}/>
             </div>
         )
     }

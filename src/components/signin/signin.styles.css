@@ -1,0 +1,80 @@
+.signin-wrapper{
+    grid-area: signin;
+    color: var(--main-text-color)
+}
+
+.signin-wrapper > h3{
+    margin-bottom: 10px;
+    font-size: 28px;
+}
+
+.signin-wrapper > h4 {
+    color: dimgray;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.signin-wrapper > form{
+    margin-top: 50px;
+}
+
+.signin-wrapper > form > div > input{
+    width: 100%;
+    border-bottom: 1px solid #d0d4e88f;
+    margin-bottom: 25px;
+    font-size: 20px;
+    padding: 0 0 2px 2px;
+    margin-top: 10px;
+}
+.signin-wrapper > form > div > .btn{
+    width: auto;
+    padding: 15px 50px 15px 50px;
+    font-size: 14px;
+    border: 1px solid var(--main-text-color);
+    cursor: pointer;
+    margin-top: 30px;
+}
+
+
+.signin-wrapper > form > div > .submit-btn{
+    float: left
+}
+.signin-wrapper > form > div > .btn:hover{
+    color: #f9f9f9;
+    background: var(--main-text-color)
+}
+
+.signin-wrapper > form > div > .submit-btn-google{
+    float: right;
+    /* background: #45a6f9; */
+}
+
+    /* transform: translate(-2px,-20px); */
+
+.signin-wrapper > form > div{
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.signin-wrapper > form > .inp-field > input[value]:not([value=""]) + label{
+    position: absolute;
+    bottom: 30px;
+    transform: translateY(-25px);
+    font-size: 14px;
+    color: var(--main-text-color)
+}
+
+.signin-wrapper > form > .inp-field > input[value = ""] + label{
+    font-size: 20px;
+    color: lightgrey;
+    position: absolute;
+    bottom: 30px;
+    transition: all 0.12s;
+    z-index: -1;
+}
+
+.signin-wrapper > form > .inp-field > input:focus + label{
+    transform: translateY(-25px);
+    font-size: 14px;
+    color: var(--main-text-color)
+}

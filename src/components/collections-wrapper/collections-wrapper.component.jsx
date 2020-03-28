@@ -4,7 +4,6 @@ import Collection from 'components/collection/collection.component'
 
 
 const CollectionsWrapper = (props) => {
-    console.log(props)
     return(
         <div className='collections-wrapper'>
             <h1 className='title'>
@@ -16,6 +15,7 @@ const CollectionsWrapper = (props) => {
                 key={collection.id}
                 collectionName = {collection.title}
                 collectionItems = {collection.items}
+                collectionRoute = {collection.routeName}
                 />
             )}
            

@@ -9,9 +9,11 @@
 
 .collection > .title{
     grid-area: coll-title;
-    letter-spacing: 0.02em;
+    /* letter-spacing: 0.02em; */
     font-size: 25px;
-    font-weight: 100;
+    /* font-weight: 100; */
+    margin: 10px 0 10px 0;
+    cursor: pointer
 }
 .collection .collection-items{
     grid-area: coll-items;
