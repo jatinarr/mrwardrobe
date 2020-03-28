@@ -20,11 +20,13 @@
 
 .signin-wrapper > form > div > input{
     width: 100%;
+    position: relative;
     border-bottom: 1px solid #d0d4e88f;
     margin-bottom: 25px;
     font-size: 20px;
     padding: 0 0 2px 2px;
     margin-top: 10px;
+    z-index: 2;
 }
 .signin-wrapper > form > div > .btn{
     width: auto;
@@ -70,7 +72,7 @@
     position: absolute;
     bottom: 30px;
     transition: all 0.12s;
-    z-index: -1;
+    z-index: 1
 }
 
 .signin-wrapper > form > .inp-field > input:focus + label{

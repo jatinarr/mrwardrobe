@@ -13,7 +13,8 @@ class Signup extends React.Component{
     }
 
     handleSubmit = (event) => {
-        // event.preventDefault()
+        event.preventDefault()
+        console.log(this.state)
     }
 
     handleChange = (event) => {
