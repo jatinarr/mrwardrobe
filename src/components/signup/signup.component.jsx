@@ -1,5 +1,7 @@
 import React from 'react'
 import './signup.styles.css'
+import CustomButton from 'components/custom-button/custom-button.component'
+
 
 class Signup extends React.Component{
     constructor(){
@@ -74,7 +76,10 @@ class Signup extends React.Component{
                     </div>
 
                     <div className="buttons">
-                         <input className="submit-btn btn" type="submit" value="SIGN UP"/>
+                        <CustomButton
+                        className="submit-btn btn" 
+                        type="submit" value="SIGN UP"
+                        />
                     </div>
                 </form>
  

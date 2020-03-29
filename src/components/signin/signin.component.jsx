@@ -1,5 +1,6 @@
 import React from 'react'
 import './signin.styles.css'
+import CustomButton from 'components/custom-button/custom-button.component'
 
 class Signin extends React.Component{
     constructor(){
@@ -48,8 +49,14 @@ class Signin extends React.Component{
                     </div>
 
                     <div className="buttons">
-                        <input className="submit-btn btn" type="submit" value="SIGN IN"/>
-                        <input className="submit-btn-google btn" type="submit" value="SIGN IN WITH GOOGLE"/>
+                        <CustomButton 
+                        className="submit-btn btn"
+                        type="submit" value="SIGN IN"
+                        />
+                        <CustomButton 
+                        className="submit-btn-google btn" 
+                        type="submit" value="SIGN IN WITH GOOGLE"
+                        />
                     </div>
                 </form>
  
