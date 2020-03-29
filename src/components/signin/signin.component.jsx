@@ -1,6 +1,7 @@
 import React from 'react'
 import './signin.styles.css'
 import CustomButton from 'components/custom-button/custom-button.component'
+import CustomInputField from 'components/custom-input-field/custom-input-field.component'
 
 class Signin extends React.Component{
     constructor(){
@@ -9,6 +10,9 @@ class Signin extends React.Component{
             email: '',
             password: ''
         }
+
+        this.fields=
+        ['email','password']
     }
 
     handleSubmit = (event) => {
@@ -26,27 +30,22 @@ class Signin extends React.Component{
             <div className= "signin-wrapper">
                 <h3> Already have an account? </h3>
                 <h4> Sign in with your email and password</h4>
-
                 <form onSubmit={this.handleSubmit}>
-                    <div className="inp-field email-wrapper">
-                        <input 
-                        name = "email"
-                        type="email"
-                        value = {this.state.email}
-                        onChange={this.handleChange}
-                        />
-                        <label>Email</label>
-                    </div>
+                    <CustomInputField 
+                    className = "inp-field"
+                    name="email" type="email"
+                    value = {this.state.email}
+                    onChange={this.handleChange}
+                    label="email"
+                    />
 
-                    <div className="inp-field password-wrapper">
-                        <input 
-                        name="password"
-                        type="password"
-                        value = {this.state.password}
-                        onChange={this.handleChange}
-                        />
-                        <label>Password</label>
-                    </div>
+                    <CustomInputField 
+                    className = "inp-field"
+                    name="password" type="password"
+                    value = {this.state.password}
+                    onChange={this.handleChange}
+                    label="password"
+                    />
 
                     <div className="buttons">
                         <CustomButton 
@@ -59,7 +58,6 @@ class Signin extends React.Component{
                         />
                     </div>
                 </form>
- 
             </div>
         )
     }

@@ -1,6 +1,8 @@
 import React from 'react'
 import './signup.styles.css'
 import CustomButton from 'components/custom-button/custom-button.component'
+import CustomInputField from 'components/custom-input-field/custom-input-field.component'
+
 
 
 class Signup extends React.Component{
@@ -31,49 +33,38 @@ class Signup extends React.Component{
                 <h4> Sign up with your email and password</h4>
 
                 <form onSubmit={this.handleSubmit}>
-                    <div className="inp-field name-wrapper">
-                        <input 
-                        name = "name"
-                        type="text" 
-                        required
-                        value={this.state.name}
+                        <CustomInputField 
+                        className = "inp-field"
+                        name="name" type="text"
+                        value = {this.state.name}
                         onChange={this.handleChange}
+                        label="Name"
                         />
-                        <label>Name</label>
-                    </div>
 
-                    <div className="inp-field email-wrapper">
-                        <input 
-                        name = "email"
-                        type="email"
-                        required
-                        value={this.state.email}
+                        <CustomInputField 
+                        className = "inp-field"
+                        name="email" type="email"
+                        value = {this.state.email}
                         onChange={this.handleChange}
+                        label="email"
                         />
-                        <label>Email</label>
-                    </div>
 
-                    <div className="inp-field password-wrapper">
-                        <input 
-                        name="password"
-                        type="password" 
-                        required
-                        value={this.state.password}
+                         <CustomInputField 
+                        className = "inp-field"
+                        name="password" type="password"
+                        value = {this.state.password}
                         onChange={this.handleChange}
+                        label="password"
                         />
-                        <label>Password</label>
-                    </div>
 
-                    <div className="inp-field confirm-password-wrapper">
-                        <input 
-                        name="confirm_password"
-                        type="password"
-                        required
-                        value={this.state.confirm_password}
+                        <CustomInputField 
+                        className = "inp-field"
+                        name="confirm_password" type="password"
+                        value = {this.state.confirm_password}
                         onChange={this.handleChange}
-                        />
-                        <label>Confirm Password</label>
-                    </div>
+                        label="Confirm Password"
+                        />  
+                                                            
 
                     <div className="buttons">
                         <CustomButton
