@@ -4,6 +4,7 @@ import React from 'react'
 import './navbar.styles.css'
 import {Cart} from 'components/cart/cart.component'
 import {withRouter} from 'react-router-dom'
+import {auth} from '../../firebase/firebase.utils'
 
 // Opens the passed link using history.push()
 const OpenLink = (history, match, link) => {
@@ -11,6 +12,7 @@ const OpenLink = (history, match, link) => {
 }
 
 const Navbar = (props) => {
+    // 
     return(
         <div className='navbar'>
             <span className='left'
@@ -20,11 +22,28 @@ const Navbar = (props) => {
             <span className='right'>
                 <span 
                 onClick={ () => OpenLink(props.history, props.match, 'shop')}
-                > SHOP </span>
+                > SHOP 
+                </span>
+                
                 <span> CONTACT </span>
-                <span
-                onClick = { () => OpenLink(props.history, props.match, 'signin')}
-                > SIGN IN </span>
+                {
+                    props.currentUser
+                    ? (
+                    <span
+                    onClick = { 
+                        () => {auth.signOut()}
+                    }
+                    > SIGN OUT 
+                    </span>
+                    ):(
+                    <span
+                    onClick = { () => OpenLink(props.history, props.match, 'signin')}
+                    > SIGN IN 
+                    </span>
+                    )
+                }
+                
+                
                 <span className='cart'><Cart/></span>
             </span>
             

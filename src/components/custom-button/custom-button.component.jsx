@@ -4,13 +4,12 @@ import './custom-button.styles.css'
 const CustomButton = (props) => {
 
     // deconstructing
-    const {className,type,value} = props 
+    const {className,value, onClick} = props 
 
     return(
-            <input className={className} 
-            type={type} 
-            value={value}
-            />
+            <button className={className} 
+            onClick = {onClick}
+            > {value} </button>
     )
 }
 

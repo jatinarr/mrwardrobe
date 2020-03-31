@@ -2,6 +2,7 @@ import React from 'react'
 import './signup.styles.css'
 import CustomButton from 'components/custom-button/custom-button.component'
 import CustomInputField from 'components/custom-input-field/custom-input-field.component'
+import {auth, createUserProfileDocument} from '../../firebase/firebase.utils'
 
 
 
@@ -16,9 +17,45 @@ class Signup extends React.Component{
         }
     }
 
-    handleSubmit = (event) => {
+    handleSubmit = async (event) => {
         event.preventDefault()
-        console.log(this.state)
+        const displayName = this.state.name
+
+        try{
+            const {user} = await auth.createUserWithEmailAndPassword(this.state.email, this.state.password);
+            await createUserProfileDocument(user, {displayName});
+            this.setState({
+                name: "",
+                email: "",
+                password:"",
+                confirm_password:""
+            })
+        }
+
+        catch(error){
+            console.error(error)
+        }
+
+        // .then( (userCredentials) => {
+        //     ;
+        //     if (userCredentials.user != null){
+        //         userCredentials.user.updateProfile({
+        //             displayName:this.state.name,
+        //             password:this.state.password
+        //         }).then((res) => {; ; return  userCredentials})
+        //     }
+        //     else{
+        //         
+        //     }
+        // })
+        // .catch( (error: Error) => {
+        //     alert(error.message);
+        //     
+        //     auth.fetchSignInMethodsForEmail(this.state.email)
+        //     .then((response) => {
+        //         alert("You previously logged in via: " + response[0])
+        //     })
+        // })
     }
 
     handleChange = (event) => {

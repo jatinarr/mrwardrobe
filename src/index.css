@@ -19,6 +19,9 @@ input:-webkit-autofill::first-line {font-size: 20px}
     --main-text-color: #282c3f
 }
 
+button{
+    outline: none
+}
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

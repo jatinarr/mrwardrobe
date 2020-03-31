@@ -3,26 +3,31 @@ import './signin.styles.css'
 import CustomButton from 'components/custom-button/custom-button.component'
 import CustomInputField from 'components/custom-input-field/custom-input-field.component'
 
+import {signInWithGoogle} from '../../firebase/firebase.utils'
+import {signInWithEmail} from '../../firebase/firebase.utils'
+
 class Signin extends React.Component{
-    constructor(){
-        super()
+    constructor(props){
+        super(props)
         this.state = {
             email: '',
             password: ''
         }
-
-        this.fields=
-        ['email','password']
     }
 
     handleSubmit = (event) => {
         event.preventDefault();
-        console.log(this.state)
+        // 
     }
 
     handleChange = (event) => {
         const {value,name} = event.target
         this.setState({[name] : value})  
+    }
+
+    handleEmailSignin = () => {
+        const {email, password} = this.state
+        signInWithEmail({email,password})
     }
 
     render(){
@@ -50,11 +55,13 @@ class Signin extends React.Component{
                     <div className="buttons">
                         <CustomButton 
                         className="submit-btn btn"
-                        type="submit" value="SIGN IN"
+                        value="SIGN IN"
+                        onClick = {this.handleEmailSignin}
                         />
                         <CustomButton 
-                        className="submit-btn-google btn" 
-                        type="submit" value="SIGN IN WITH GOOGLE"
+                        className="submit-btn-google btn"
+                        value="SIGN IN WITH GOOGLE"
+                        onClick = {signInWithGoogle}
                         />
                     </div>
                 </form>
