@@ -11,7 +11,7 @@
 .signin-wrapper > h4 {
     color: dimgray;
     font-weight: 400;
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .signin-wrapper > form{
@@ -23,14 +23,14 @@
     position: relative;
     border-bottom: 1px solid #d0d4e88f;
     margin-bottom: 25px;
-    font-size: 20px;
+    font-size: 18px;
     padding: 0 0 2px 2px;
     margin-top: 10px;
     z-index: 2;
 }
 .signin-wrapper > form > div > .btn{
     width: auto;
-    padding: 15px 50px 15px 50px;
+    padding: 15px 30px 15px 30px;
     font-size: 14px;
     border: 1px solid var(--main-text-color);
     cursor: pointer;
@@ -67,7 +67,7 @@
 }
 
 .signin-wrapper > form > .inp-field > input[value = ""] + label{
-    font-size: 20px;
+    font-size: 18px;
     color: lightgrey;
     position: absolute;
     bottom: 30px;

@@ -7,6 +7,8 @@ import {withRouter} from 'react-router-dom'
 import {auth} from '../../firebase/firebase.utils'
 
 import {connect} from 'react-redux'
+import cartIcon from '../../images/cart-icon.svg'
+import mwLogo from '../../images/mw-dark.png'
 
 // Opens the passed link using history.push()
 const OpenLink = (history, match, link) => {
@@ -20,7 +22,9 @@ const Navbar = (props) => {
         <div className='navbar'>
             <span className='left'
             onClick={ () => OpenLink(props.history, props.match, '')}
-            > LOGO
+            >
+            <img src={ mwLogo }
+                     alt="Logo" /> 
             </span>
             <span className='right'>
                 <span
@@ -47,7 +51,12 @@ const Navbar = (props) => {
                 }
                 
                 
-                <span className='cart'><Cart/></span>
+                <span className='cart'>
+                     <img src={ cartIcon }
+                     alt="CART" /> 
+                    <input type="checkbox"/>
+                    <Cart/>
+                </span>
             </span>
             
         </div>

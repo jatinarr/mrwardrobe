@@ -3,6 +3,6 @@
     box-sizing: border-box;
     display: grid;
     grid-template-areas: 'signin signup';
-    grid-gap: 200px;
+    grid-gap: 180px;
     grid-template-columns: 1fr 1fr;
 }
