@@ -6,21 +6,19 @@ import SigninSignupPage from 'components/signin-signup-page/signin-signup-page.c
 
 import './App.css';
 import {Route} from 'react-router-dom'
-import {withRouter} from 'react-router-dom'
+import {withRouter, Redirect} from 'react-router-dom'
 // import { Redirect } from 'react-router-dom'
 import {auth,createUserProfileDocument } from './firebase/firebase.utils'
 
+import {connect} from 'react-redux'
+import {setCurrentUser} from './redux/user/user.actions'
+
 class App extends React.Component{
-    constructor(props){
-        super(props)
-        this.state = {
-            currentUser: null
-        }
-    }
     unsubscribeFromAuth = null
 
     componentDidMount(){
-
+        const {setCurrentUser} = this.props
+    
         // subscription always open between firebase and our app
         // onAuthStateChanged always running to check if there are any
         // changes in the state of auth object i.e whether the user
@@ -33,17 +31,15 @@ class App extends React.Component{
 
                 // check if our db has been updated
                 userRef.onSnapshot((snapshot => {
-                    this.setState({
-                        currentUser: {
+                    setCurrentUser({
                             id: snapshot.id,
                             ...snapshot.data()
-                        }
-                    }, this.props.history.push('/'))
+                    })
                 }))
             }
 
             else{
-                this.setState({currentUser: userAuth})
+                setCurrentUser(userAuth)
             }
             
         })
@@ -57,12 +53,19 @@ class App extends React.Component{
         return (
             <div className='app'> 
                 <div className='fixed-component'>
-                    <Navbar currentUser={this.state.currentUser}/>
+                    <Navbar/>
                 </div>
                 <div className="dynamic-component">
                     <Route exact path='/' component={HomePage}></Route>
                     <Route exact path='/shop' component={ShopPage}></Route>
-                    <Route exact path='/signin' component={SigninSignupPage}></Route>
+                    <Route 
+                    exact path='/signin' 
+                    render = { 
+                        () => this.props.currentUser ? 
+                            (<Redirect to = '/' />):
+                            (<SigninSignupPage />)
+                        }>
+                    </Route>
 
                 </div>
             </div>
@@ -70,4 +73,36 @@ class App extends React.Component{
     }
 }
 
-export default withRouter(App);
+
+const mapStateToProps = (state) => {
+    // console.log("mapStateToProps: ")
+    // console.log(state)
+        return({
+            currentUser: state.user.currentUser
+        })
+}
+
+
+/* What will end up returning inside mapDispatchToProps? : setCurrentUser
+ which goes to a function that gets the uer object and calls dispatch
+
+ using dispatch, redux knows that whatever object is passed to dispatch()
+ is going to be an action object, which is to be passed to every reducer 
+
+ so our user.action.js gets a user object but returns an action object!
+*/
+
+// const mapDispatchToProps = (dispatch) => {
+//     setCurrentUser(user)
+// }
+
+const mapDispatchToProps = (dispatch) => {
+    return ({
+        setCurrentUser : (user) => dispatch(setCurrentUser(user))
+    })
+}
+    
+
+// since no change to state here, the first prop: map to state not required, pass null
+// pass mapDispatch.. as second prop
+export default connect(mapStateToProps,mapDispatchToProps)(withRouter(App));
