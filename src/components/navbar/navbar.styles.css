@@ -43,8 +43,8 @@
     z-index: 2;
     position: relative;
     opacity: 0;
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 17px;
     cursor: pointer;
 }
 .navbar .right .cart > input[type='checkbox']:checked + .cart-overview{
