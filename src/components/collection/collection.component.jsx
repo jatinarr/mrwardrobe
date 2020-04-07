@@ -21,9 +21,7 @@ const Collection = (props) => {
                         (collection_item) => (
                         <CollectionItem
                         key={collection_item.id}
-                        collectionItemName = {collection_item.name}
-                        collectionItemPrice = {collection_item.price}
-                        collectionItemImage = {collection_item.imageUrl}
+                        item = {collection_item}
                         /> 
                         )
                 )}
