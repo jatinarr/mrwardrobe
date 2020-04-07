@@ -1,25 +1,33 @@
 import {CartActionTypes} from './cart.types.js'
 
 const INITIAL_STATE = {
-    cartItems : {}
+    cartItems : []
 }
 
 // Groups the duplicate items by increasing the quantity
 const GroupCartItems = (cartItems, newItem) => {
-    if ( !cartItems[newItem.id] ){
+
+    /*
+    IMPORTANT: 
+    whenever we make update, we always return a new object 
+    so that react can detect change and re-render, else it wont
+    re-render, so, everytime return a new  obejct with updated value.
+    */ 
+    const newCartItems = {...cartItems}
+    if ( !newCartItems[newItem.id] ){
         
-        cartItems[newItem.id] = {
+        newCartItems[newItem.id] = {
             item : newItem,
             quantity : 1
         }
     }
     else{
-        cartItems[newItem.id] = {
-            ...cartItems[newItem.id],
-            quantity : cartItems[newItem.id].quantity + 1
+        newCartItems[newItem.id] = {
+            ...newCartItems[newItem.id],
+            quantity : newCartItems[newItem.id].quantity + 1
         }
     }
-    return cartItems
+    return newCartItems
 }
 
 const CartReducer = (state = INITIAL_STATE, action) => {
@@ -29,10 +37,13 @@ const CartReducer = (state = INITIAL_STATE, action) => {
                 {}, 
                 state, 
                 // {cartItems: [...state.cartItems, action.payload]}
-                {cartItems: 
-                    GroupCartItems(state.cartItems,action.payload)
+                {
+                    cartItems: 
+                        GroupCartItems(state.cartItems,action.payload)
                 }
             )
+
+            
         
         default:
             return state

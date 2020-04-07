@@ -15,9 +15,32 @@
 .cart-overview > .cart-items-wrapper{
     padding: 10px;
 }
+.cart-overview > .cart-items-wrapper > .empty-cart-text > .title{
+    /* font-family: "Google Sans",sans-serif; */
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 36px;
+    margin: 0;
+    text-align: center;
+}
+
+.cart-overview > .cart-items-wrapper > .empty-cart-text > .info{
+    color: #9aa0a6;
+    /* font-family: "Google Sans",sans-serif; */
+    font-size: 15px;
+    line-height: 1.72em;
+    text-align: center;
+}
+
 .cart-overview > .cart-items-wrapper > .cart-item {
     padding: 10px;
     display: flex;
+    border-bottom: 1px solid #ebebeb;
+    
+}
+
+.cart-overview > .cart-items-wrapper > .cart-item:last-child{
+    border-bottom: none;
 }
 
 .cart-overview > .cart-items-wrapper > .cart-item > .item-info{

@@ -1,6 +1,7 @@
 body {
     margin: 0;
-    font-family: Whitney,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif;
+    /* font-family: Whitney,-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica,Arial,sans-serif; */
+    font-family: "Google Sans",sans-serif;
     /* font-family: 'Open Sans Condensed', sans-serif; */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

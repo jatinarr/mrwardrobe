@@ -2,7 +2,7 @@
 
 import React from 'react'
 import './navbar.styles.css'
-import {Cart} from 'components/cart/cart.component'
+import Cart from 'components/cart/cart.component'
 import {withRouter} from 'react-router-dom'
 import {auth} from '../../firebase/firebase.utils'
 
