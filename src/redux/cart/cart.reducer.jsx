@@ -1,7 +1,7 @@
 import {CartActionTypes} from './cart.types.js'
 
 const INITIAL_STATE = {
-    cartItems : []
+    cartItems: [{},0]
 }
 
 // Groups the duplicate items by increasing the quantity
@@ -13,20 +13,33 @@ const GroupCartItems = (cartItems, newItem) => {
     so that react can detect change and re-render, else it wont
     re-render, so, everytime return a new  obejct with updated value.
     */ 
-    const newCartItems = {...cartItems}
-    if ( !newCartItems[newItem.id] ){
+    const newCartItems = [...cartItems]
+
+    const itemsDict = newCartItems[0]
+    const totalItems = newCartItems[1]
+
+
+    // if item not present, add it
+    if ( !itemsDict[newItem.id] ){
         
-        newCartItems[newItem.id] = {
+        itemsDict[newItem.id] = {
             item : newItem,
             quantity : 1
         }
     }
+
+    // else increase the quantity
     else{
-        newCartItems[newItem.id] = {
-            ...newCartItems[newItem.id],
-            quantity : newCartItems[newItem.id].quantity + 1
+        itemsDict[newItem.id] = {
+            ...itemsDict[newItem.id],
+            quantity : itemsDict[newItem.id].quantity + 1
         }
     }
+
+    // updating total items count
+    newCartItems[1] = totalItems + 1
+
+    // returns the new object with updated content
     return newCartItems
 }
 
@@ -39,7 +52,7 @@ const CartReducer = (state = INITIAL_STATE, action) => {
                 // {cartItems: [...state.cartItems, action.payload]}
                 {
                     cartItems: 
-                        GroupCartItems(state.cartItems,action.payload)
+                        GroupCartItems(state.cartItems, action.payload)
                 }
             )
 

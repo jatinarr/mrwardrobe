@@ -7,7 +7,8 @@ import CartItem from 'components/cart-item/cart-item.component'
 import  {connect} from 'react-redux'
 
 const Cart = (props) => {
-    
+    // console.log("in cart");
+    // console.log(props)
     const {cartItems} = props
     // console.log(cartItems)
     return(
@@ -15,11 +16,11 @@ const Cart = (props) => {
             <div className="cart-items-wrapper">
               { cartItems.length != 0 ? 
                     (
-                        Object.keys(cartItems).map(
+                        Object.keys(cartItems[0]).map(
                             (key) => 
                             <CartItem
                             key={key}
-                            cartItem={cartItems[key]}
+                            cartItem={cartItems[0][key]}
                             />
                         )
                     )
