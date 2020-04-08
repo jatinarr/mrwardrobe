@@ -32,11 +32,25 @@
     position: relative;
 }
 
-.navbar .right .cart > img{
+.navbar .right .cart .img-wrapper> img{
     width: 20px;
     position: absolute;
     right: 0;
     top: -2px;
+}
+
+.navbar .right .cart > .img-wrapper > .cart-item-count{
+    position: absolute;
+    font-size: 11px;
+    width: 100%;
+    text-align: center;
+    top: 0.5em;
+}
+
+.navbar .right .cart > .img-wrapper > .max-count-limit{
+    font-size: 8px;
+    top: 0.8em;
+    left: 0.08em;
 }
 
 .navbar .right .cart > input[type='checkbox']{

@@ -9,18 +9,18 @@ import  {connect} from 'react-redux'
 const Cart = (props) => {
     // console.log("in cart");
     // console.log(props)
-    const {cartItems} = props
+    const {cartItems} = props.cartContent
     // console.log(cartItems)
     return(
         <div className="cart-overview">
             <div className="cart-items-wrapper">
               { cartItems.length != 0 ? 
                     (
-                        Object.keys(cartItems[0]).map(
+                        Object.keys(cartItems).map(
                             (key) => 
                             <CartItem
                             key={key}
-                            cartItem={cartItems[0][key]}
+                            cartItem={cartItems[key]}
                             />
                         )
                     )
@@ -48,7 +48,7 @@ const Cart = (props) => {
 
 const mapStateToProps = (state) => {
     return({
-        cartItems : state.cart.cartItems
+        cartContent : state.cart.cartContent
     })
 }
 

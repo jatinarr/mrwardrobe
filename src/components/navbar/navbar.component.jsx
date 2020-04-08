@@ -18,6 +18,7 @@ const OpenLink = (history, match, link) => {
 const Navbar = (props) => {
     // console.log('nav props: ')
     // console.log(props)
+    const {totalItemsInCart} = props.cartContent
     return(
         <div className='navbar'>
             <span className='left'
@@ -52,8 +53,23 @@ const Navbar = (props) => {
                 
                 
                 <span className='cart'>
-                     <img src={ cartIcon }
-                     alt="CART" /> 
+                    <span className="img-wrapper">
+                        <img src={ cartIcon } alt="CART" /> 
+                        {
+                                totalItemsInCart < 100 ? 
+                                (
+                                    <span className="cart-item-count"> 
+                                        {totalItemsInCart}
+                                    </span>
+                                ): (
+                                     <span className="cart-item-count max-count-limit"> 
+                                        99+
+                                    </span>
+                                )
+                        }
+                        
+                       
+                    </span>
                     <input type="checkbox"/>
                     <Cart/>
                 </span>
@@ -70,7 +86,8 @@ const mapStateToProps = (state) => {
     // console.log("HERE1")
     // console.log(state)
     return ({
-        currentUser: state.user.currentUser
+        currentUser : state.user.currentUser,
+        cartContent : state.cart.cartContent
     })
 }
     

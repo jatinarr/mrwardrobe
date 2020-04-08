@@ -1,11 +1,14 @@
 import {CartActionTypes} from './cart.types.js'
 
 const INITIAL_STATE = {
-    cartItems: [{},0]
+    cartContent: {
+        cartItems: {},
+        totalItemsInCart: 0
+    }
 }
 
 // Groups the duplicate items by increasing the quantity
-const GroupCartItems = (cartItems, newItem) => {
+const GroupCartItems = (cartContent, newItem) => {
 
     /*
     IMPORTANT: 
@@ -13,35 +16,31 @@ const GroupCartItems = (cartItems, newItem) => {
     so that react can detect change and re-render, else it wont
     re-render, so, everytime return a new  obejct with updated value.
     */ 
-    const newCartItems = [...cartItems]
-
-    const itemsDict = newCartItems[0]
-    const totalItems = newCartItems[1]
-
+    const newCartContent = {...cartContent}
 
     // if item not present, add it
-    if ( !itemsDict[newItem.id] ){
+    if ( !newCartContent.cartItems[newItem.id] ){
         
-        itemsDict[newItem.id] = {
+        newCartContent.cartItems[newItem.id] = {
             item : newItem,
             quantity : 1
         }
+        newCartContent.totalItemsInCart += 1
     }
 
     // else increase the quantity
     else{
-        itemsDict[newItem.id] = {
-            ...itemsDict[newItem.id],
-            quantity : itemsDict[newItem.id].quantity + 1
+        newCartContent.cartItems[newItem.id] = {
+            ...newCartContent.cartItems[newItem.id],
+            quantity : newCartContent.cartItems[newItem.id].quantity + 1
         }
+        newCartContent.totalItemsInCart += 1
     }
 
-    // updating total items count
-    newCartItems[1] = totalItems + 1
-
     // returns the new object with updated content
-    return newCartItems
+    return newCartContent
 }
+
 
 const CartReducer = (state = INITIAL_STATE, action) => {
     switch(action.type){
@@ -51,8 +50,8 @@ const CartReducer = (state = INITIAL_STATE, action) => {
                 state, 
                 // {cartItems: [...state.cartItems, action.payload]}
                 {
-                    cartItems: 
-                        GroupCartItems(state.cartItems, action.payload)
+                    cartContent: 
+                        GroupCartItems(state.cartContent, action.payload)
                 }
             )
 
