@@ -9,12 +9,11 @@ import  {connect} from 'react-redux'
 const Cart = (props) => {
     // console.log("in cart");
     // console.log(props)
-    const {cartItems} = props.cartContent
-    // console.log(cartItems)
+    const {cartItems,totalItemsInCart} = props.cartContent
     return(
         <div className="cart-overview">
             <div className="cart-items-wrapper">
-              { cartItems.length != 0 ? 
+              { totalItemsInCart != 0 ? 
                     (
                         Object.keys(cartItems).map(
                             (key) => 
@@ -34,7 +33,7 @@ const Cart = (props) => {
                 }
 
             </div>
-            { cartItems.length != 0 ?
+            { totalItemsInCart != 0 ?
                ( <div className="checkout-btn">
                     <CustomButton 
                     className="submit-btn btn"
