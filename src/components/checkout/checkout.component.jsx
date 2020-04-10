@@ -8,6 +8,20 @@ const CheckoutPage = (props) => {
     const {cartItems} = props.cartContent
     const {removeItemGroup} = props
     return(
+        Object.keys(cartItems).length === 0 ? 
+        (   
+            <div class="empty-cart-wrapper">
+                <div className="checkout-area">
+                    <h3 className="title"> Your cart is empty </h3>
+                    <div className="content-wrapper">
+                        <p className="content-body"> Add items to your cart and get easy checkout, returns, and customer support. 
+                        </p>
+                    </div>
+                </div>
+            </div>
+        )
+        :
+        (
         <div className='checkout-page'>
             <table>
                 <thead>
@@ -56,6 +70,7 @@ const CheckoutPage = (props) => {
                 </tbody>
             </table>
         </div>
+        )
     )
 }
 

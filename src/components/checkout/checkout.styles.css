@@ -46,3 +46,25 @@
 .checkout-items-wrapper > tr:last-child{
     border-bottom: none
 }
+
+.empty-cart-wrapper{
+    background-color: #fff;
+}
+.empty-cart-wrapper .checkout-area{
+    -webkit-box-shadow: 0 1px 6px 0 rgba(0,0,0,.1);
+    margin: 30px auto 0;
+    padding: 48px 16px;
+}
+
+.empty-cart-wrapper .checkout-area .title{
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    text-align: center;
+}
+
+.empty-cart-wrapper .checkout-area .content-wrapper{
+    font-size: 14px;
+    color: rgba(0,0,0,.87);
+    text-align: center;
+}

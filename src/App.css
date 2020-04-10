@@ -31,7 +31,8 @@
 
 .dynamic-component{
     grid-area: dynamic-component;
-    background: #FFFFFF;
+    /* background: #FFFFFF; */
+    background-color: #fafafa;
 }
 
 input{
