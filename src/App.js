@@ -2,7 +2,8 @@ import React from 'react';
 import Navbar from 'components/navbar/navbar.component'
 import HomePage from 'components/homepage/homepage.component.jsx'
 import ShopPage from 'components/shop/shop.component.jsx'
-import SigninSignupPage from 'components/signin-signup-page/signin-signup-page.component.jsx'
+import SigninSignupPage from 'components/signin-signup-page/signin-signup-page.component'
+import CheckoutPage from 'components/checkout/checkout.component'
 
 import './App.css';
 import {Route} from 'react-router-dom'
@@ -56,16 +57,18 @@ class App extends React.Component{
                     <Navbar/>
                 </div>
                 <div className="dynamic-component">
-                    <Route exact path='/' component={HomePage}></Route>
-                    <Route exact path='/shop' component={ShopPage}></Route>
+                
+                    <Route exact path='/' component={HomePage}/>
+                    <Route exact path='/shop' component={ShopPage}/>
                     <Route 
                     exact path='/signin' 
                     render = { 
                         () => this.props.currentUser ? 
                             (<Redirect to = '/' />):
                             (<SigninSignupPage />)
-                        }>
-                    </Route>
+                        }/>
+
+                    <Route path='/checkout' component={CheckoutPage}/>
 
                 </div>
             </div>

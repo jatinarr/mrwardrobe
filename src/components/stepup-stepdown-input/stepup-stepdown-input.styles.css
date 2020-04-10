@@ -1,0 +1,33 @@
+.stepup-stepdown-input-wrapper{
+    width: 50px;
+    display: flex;
+}
+
+.stepup-stepdown-input-wrapper >.step-decrement{
+    font-weight: 500;
+    line-height: 1.4;
+    cursor: pointer;
+}
+
+.stepup-stepdown-input-wrapper >.step-input-field{
+    width: 12%;
+    margin: 0 15px 0 15px;
+    width: 60%;
+    
+}
+.stepup-stepdown-input-wrapper >.step-input-field > input{
+    border: 1px solid #ededed;
+    max-width: 100%;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.8;
+    border-radius: 4px;
+    pointer-events: none;
+}
+
+.stepup-stepdown-input-wrapper >.step-increment{
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.3;
+    cursor: pointer;
+}

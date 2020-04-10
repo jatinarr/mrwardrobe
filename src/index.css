@@ -13,6 +13,19 @@ input:-webkit-autofill {
     -webkit-text-fill-color: #333;
 }
 
+
+/* Hide Spin button:  Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Hide Spin button:Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 input:-webkit-autofill::first-line {font-size: 20px}
 
 :root{
