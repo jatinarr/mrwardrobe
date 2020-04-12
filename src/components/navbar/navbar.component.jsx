@@ -9,6 +9,8 @@ import {auth} from '../../firebase/firebase.utils'
 import {connect} from 'react-redux'
 import cartIcon from '../../images/cart-icon.svg'
 import mwLogo from '../../images/mw-dark.png'
+// import {persistor} from '../../redux/store'
+import {purgeCart} from '../../redux/cart/cart.actions'
 
 // Opens the passed link using history.push()
 const OpenLink = (history, match, link) => {
@@ -19,6 +21,7 @@ const Navbar = (props) => {
     // console.log('nav props: ')
     // console.log(props)
     const {totalItemsInCart} = props.cartContent
+    const {purgeCart} = props
     return(
         <div className='navbar'>
             <span className='left'
@@ -39,7 +42,13 @@ const Navbar = (props) => {
                     ? (
                     <span
                     onClick = { 
-                        () => {auth.signOut()}
+                        () => 
+                            {   
+
+                                auth.signOut()
+                                purgeCart()
+                                // persistor.purge();
+                            }
                     }
                     > SIGN OUT 
                     </span>
@@ -90,7 +99,13 @@ const mapStateToProps = (state) => {
         cartContent : state.cart.cartContent
     })
 }
+
+const mapDispatchToProps = (dispatch) => {
+    return({
+        purgeCart : () => dispatch(purgeCart())
+    })
+}
     
  
- export default connect(mapStateToProps)(withRouter(Navbar))
+ export default connect(mapStateToProps,mapDispatchToProps)(withRouter(Navbar))
 // export default withRouter(Navbar)

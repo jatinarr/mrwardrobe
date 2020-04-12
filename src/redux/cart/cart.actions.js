@@ -20,3 +20,11 @@ export const removeItemGroup = (item) => {
         payload: item
     })
 }
+
+export const purgeCart = () => {
+    console.log("purgeCart")
+    return({
+        type: CartActionTypes.PURGE_CART,
+        payload: null
+    })
+}

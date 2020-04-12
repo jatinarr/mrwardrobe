@@ -1,7 +1,7 @@
 import React from 'react'
 import './checkout.styles.css'
 import {connect} from 'react-redux'
-import StepupStepdownInput from '../stepup-stepdown-input/stepup-stepdown-input.component'
+import StepupStepdownInput from 'components/stepup-stepdown-input/stepup-stepdown-input.component'
 import {removeItemGroup} from '../../redux/cart/cart.actions'
 
 const CheckoutPage = (props) => {
@@ -10,7 +10,7 @@ const CheckoutPage = (props) => {
     return(
         Object.keys(cartItems).length === 0 ? 
         (   
-            <div class="empty-cart-wrapper">
+            <div className="empty-cart-wrapper">
                 <div className="checkout-area">
                     <h3 className="title"> Your cart is empty </h3>
                     <div className="content-wrapper">
