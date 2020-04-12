@@ -98,9 +98,6 @@ const purgeCart = () => {
 
 
 const CartReducer = (state = INITIAL_STATE, action) => {
-    console.log('inside')
-    console.log(action.type);
-    
     switch(action.type){
         case CartActionTypes.ADD_ITEM_TO_CART:
             return Object.assign( 
@@ -132,7 +129,6 @@ const CartReducer = (state = INITIAL_STATE, action) => {
                 }
             )   
         case CartActionTypes.PURGE_CART:
-            console.log('yes purge')
             return Object.assign(
                 {},
                 state,
