@@ -3,10 +3,11 @@ import './checkout.styles.css'
 import {connect} from 'react-redux'
 import StepupStepdownInput from 'components/stepup-stepdown-input/stepup-stepdown-input.component'
 import {removeItemGroup} from '../../redux/cart/cart.actions'
+import {StripeCheckoutButton} from '../../components/stripe-button/stripe-button.component'
 
 const CheckoutPage = (props) => {
-    const {cartItems} = props.cartContent
-    const {removeItemGroup} = props
+    const {cartItems,totalPrice} = props.cartContent
+    const {removeItemGroup, history} = props
     return(
         Object.keys(cartItems).length === 0 ? 
         (   
@@ -34,7 +35,7 @@ const CheckoutPage = (props) => {
                     </tr>
                 </thead>
                 <tbody className="checkout-items-wrapper">
-                    {
+                    {                        
                         Object.keys(cartItems).map(
                             (key) => {
                                 const item = cartItems[key].item
@@ -69,6 +70,25 @@ const CheckoutPage = (props) => {
 
                 </tbody>
             </table>
+            
+            <div className="checkout-footer">
+                <div className="continue-shopping"
+                onClick={ () => history.push('shop')}
+                >
+                    <span>&#8592;  </span>
+                    <span> Continue Shopping</span>
+                </div>
+                <div className="total-amount-wrapper">
+                    <span>Subtotal:</span> <span>${totalPrice} </span>
+                </div>
+            </div>
+            <div className="payment-instructions">
+                <div>Please use the following test credit card for payments</div>
+                <div>4242 4242 4242 4242 &#8212; Exp: 01/26 &#8212; CVV: 123</div>
+            </div>
+            <div className="stripe-button-wrapper">
+                    <StripeCheckoutButton history={props.history} price={totalPrice}/>
+            </div>
         </div>
         )
     )

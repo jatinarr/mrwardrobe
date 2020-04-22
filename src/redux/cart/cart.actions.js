@@ -22,7 +22,7 @@ export const removeItemGroup = (item) => {
 }
 
 export const purgeCart = () => {
-    // console.log("purgeCart")
+    // console.log("IN purgeCart")
     return({
         type: CartActionTypes.PURGE_CART,
         payload: null

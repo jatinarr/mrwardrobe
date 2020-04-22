@@ -1,11 +1,21 @@
 .checkout-page{
     padding: 30px;
-    display: flex;
-    justify-content: center;
+    width: 50%;
+    margin: 0 auto;
 }
 
+.checkout-page .checkout-footer .continue-shopping{
+    cursor: pointer;
+    color: var(--main-text-color);
+}
+
+.checkout-page .checkout-footer .continue-shopping span:nth-child(2){
+    color: #2C7AED;
+    margin-left: 5px;
+}
 .checkout-page > table{
     border-collapse: collapse;
+    margin: 20px auto 40px auto
 }
 
 .checkout-page > table > thead > tr > th {
@@ -22,6 +32,62 @@
 .checkout-page > table > thead > tr{
     /* border-bottom: 1px solid #ebebeb; */
 }
+
+.checkout-page > .stripe-button-wrapper {
+    display: block;
+    margin-top: 20px;
+}
+.checkout-page > .stripe-button-wrapper > .StripeCheckout{
+    transition: 0.03s;
+    display: block !important;
+    margin: 0 auto !important;
+    background: none !important;
+    text-decoration: none !important;
+    border-radius: 0px !important;
+    box-shadow: none !important;
+    visibility: visible !important;
+    user-select: none !important;
+    
+    width: 100% !important;
+    padding: 5px 10px 5px 10px !important;
+    font-size: 14px !important;
+    border: 1px solid var(--main-text-color) !important;
+    cursor: pointer !important;
+}
+
+.checkout-page > .stripe-button-wrapper > .StripeCheckout > span{
+    background-image: none !important;
+    font-family: "Google Sans",sans-serif !important;
+    font-size: none !important;
+    position: none !important;
+    padding: 0px 12px;
+    height: none !important;
+    line-height: none !important;
+    color: var(--main-text-color) !important;
+    font-weight: none !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    border-radius: 0px !important;
+    text-transform: uppercase !important;
+    font-weight: 400 !important;
+
+}
+
+.checkout-page > .stripe-button-wrapper >.StripeCheckout:hover{
+    color: #f9f9f9 !important;
+    background: var(--main-text-color) !important
+}
+
+.checkout-page > .stripe-button-wrapper > .StripeCheckout:hover > span{
+    color: #f9f9f9 !important;
+    /* background: var(--main-text-color) !important */
+}
+
+.checkout-page > .stripe-button-wrapper > .StripeCheckout > span:hover{
+    color: #f9f9f9 !important;
+    background: var(--main-text-color) !important
+}
+
 
 .checkout-items-wrapper > tr{
     border-bottom: 1px solid #ebebeb;
@@ -44,9 +110,29 @@
 }
 
 .checkout-items-wrapper > tr:last-child{
-    border-bottom: none
+    /* border-bottom: none */
 }
 
+.checkout-page .checkout-footer{
+    display: flex;
+    justify-content: space-between;
+    /* margin: 0 20px 0 30px; */
+}
+
+.checkout-page .checkout-footer .total-amount-wrapper span:nth-child(2){
+    font-size: 20px;
+    font-weight: 600;
+    font-style: normal;
+    color: var(--main-text-color);
+}
+
+.checkout-page .payment-instructions{
+    margin-top: 20px;
+    padding: 20px;
+    color: crimson;
+    text-align: center;
+    font-weight: 200;
+}
 .empty-cart-wrapper{
     background-color: #fff;
 }

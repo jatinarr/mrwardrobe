@@ -3,7 +3,8 @@ import {CartActionTypes} from './cart.types.js'
 const INITIAL_STATE = {
     cartContent: {
         cartItems: {},
-        totalItemsInCart: 0
+        totalItemsInCart: 0,
+        totalPrice: 0
     }
 }
 
@@ -38,6 +39,7 @@ const AddAnItem = (cartContent, newItem) => {
     
     // increment the total count
     newCartContent.totalItemsInCart += 1
+    newCartContent.totalPrice+= newItem.price
     
     // returns the new object with updated content
     return newCartContent
@@ -65,6 +67,7 @@ const RemoveAnItem = (cartContent, item) => {
 
     // decrement the total count
     newCartContent.totalItemsInCart -= 1
+    newCartContent.totalPrice -= item.price
 
     // returns the new object with updated content
     return newCartContent
@@ -84,13 +87,16 @@ const RemoveItemGroup = (cartContent, item) => {
     // decrement the total count negating the quantity_before_removal
     newCartContent.totalItemsInCart -= quantity_before_removal
 
+    newCartContent.totalPrice -= (quantity_before_removal*item.price)
+
     return newCartContent
 }
 
 const purgeCart = () => {
     const newCartContent = {
         cartItems: {},
-        totalItemsInCart: 0
+        totalItemsInCart: 0,
+        totalPrice: 0
     }
 
     return newCartContent

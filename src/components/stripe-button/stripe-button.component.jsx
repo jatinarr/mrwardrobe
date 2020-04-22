@@ -1,0 +1,32 @@
+import React from 'react'
+import StripeCheckout from 'react-stripe-checkout';
+import {persistor} from '../../redux/store'
+
+const onToken = (history) => {
+    alert('Payment Successful')
+    persistor.purge();
+    history.push("/")
+}
+
+const StripeCheckoutButton = ({history, price}) => {
+    const priceForStripe = price*100;
+    const PUBLISHABLE_KEY = "pk_test_P8zq5zSsahQ1pFMCfswEUqvs00yRCRX8nL"
+
+    return(
+        <StripeCheckout 
+        label = "Pay Now"
+        name = "Mr Wardrobe"
+        billingAddress
+        shippingAddress
+        image = "https://i.ibb.co/fd8xG6T/mw-light.png"
+        description = {`Your total is $${price}`}
+        amount = {priceForStripe}
+        panelLabel = 'Pay Now'
+        token = {() => onToken(history)}
+        stripeKey={PUBLISHABLE_KEY}
+        />
+    )
+} 
+
+
+export {StripeCheckoutButton}

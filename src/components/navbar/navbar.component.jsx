@@ -92,8 +92,6 @@ const Navbar = (props) => {
 // It is called every time the store state changes.
 // Each field in the returned object will become a prop for your actual component
 const mapStateToProps = (state) => {
-    // console.log("HERE1")
-    // console.log(state)
     return ({
         currentUser : state.user.currentUser,
         cartContent : state.cart.cartContent
