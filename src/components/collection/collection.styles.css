@@ -1,22 +1,16 @@
 .collection{
-    display: grid;
-    grid-template-areas: 
-    'coll-title'
-    'coll-items';
-    grid-gap: 10px;
-    margin-bottom: 40px;
+    margin: 40px 0 40px 0;
 }
 
 .collection > .title{
-    grid-area: coll-title;
     /* letter-spacing: 0.02em; */
     font-size: 25px;
     font-weight: 300;
     margin: 10px 0 10px 0;
-    cursor: pointer
+    /* cursor: pointer */
 }
 .collection .collection-items{
-    grid-area: coll-items;
+    /* grid-area: coll-items; */
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;

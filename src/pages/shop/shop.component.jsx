@@ -1,24 +1,29 @@
 import React from 'react'
-import SHOP_DATA from './shop.data.js'
 import './shop.styles.css'
 import CollectionWrapper from 'components/collections-wrapper/collections-wrapper.component'
+import CollectionPage from '../collectionpage/collectionpage.component'
 
+import {Route} from 'react-router-dom'
 
-class ShopPage extends React.Component {
-    constructor(){
-        super()
-        this.state = {
-            collections: SHOP_DATA
-        }
-    }
-
-    render() {
+const ShopPage = (props) => {
+        const {match} = props
         return(
             <div className='shop-page'>
-                <CollectionWrapper  collections={this.state.collections}/>
+                <h1 className='title'>
+                    Collections
+                </h1>
+                <Route 
+                exact path={`${match.path}`}  
+                component = {CollectionWrapper}
+                />
+
+                <Route
+                exact path={`${match.path}/:categoryId`}
+                component={CollectionPage}
+                />
+                
             </div>
         )
-    }
 }
 
 export default ShopPage

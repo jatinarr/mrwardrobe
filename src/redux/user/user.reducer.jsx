@@ -26,4 +26,4 @@ const UserReducer = (state = INITIAL_STATE, action) => {
 
 }
 
-export default UserReducer
+export  {UserReducer}

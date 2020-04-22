@@ -1,8 +1,7 @@
 .collections-wrapper{
     height: 100%;
+    margin-top: 40px;
 }
-
-.collections-wrapper > .title{
-    /* letter-spacing: 0.02em; */
-    margin: 30px 0 30px 0;
+.collections-wrapper .collection .title{
+    cursor: pointer;
 }

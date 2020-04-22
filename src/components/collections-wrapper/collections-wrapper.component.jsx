@@ -1,15 +1,15 @@
 import React from 'react'
 import './collections-wrapper.styles.css'
 import Collection from 'components/collection/collection.component'
-
+import {connect} from 'react-redux'
 
 const CollectionsWrapper = (props) => {
+    const {collections} = props
+    // console.log(Object.values(collections).map((collection,index) => console.log(collection)))
+    // return;
     return(
         <div className='collections-wrapper'>
-            <h1 className='title'>
-                Collections
-            </h1>
-            {props.collections.map(
+            {Object.values(collections).map(
                 (collection) => 
                 <Collection
                 key={collection.id}
@@ -23,4 +23,10 @@ const CollectionsWrapper = (props) => {
     )
 }
 
-export default CollectionsWrapper
+const mapStateToProps = (state) => {
+    return({
+        collections : state.shop.shopData
+    })
+}
+
+export default connect(mapStateToProps)(CollectionsWrapper)

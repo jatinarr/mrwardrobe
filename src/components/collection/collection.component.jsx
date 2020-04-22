@@ -8,15 +8,32 @@ const OpenLink = (history, match, routeName) => {
 }
 
 const Collection = (props) => {
+    const{
+        isCategory,match,history,collectionRoute,collectionName,collectionItems} = props
+
     return(
         <div className='collection'>
-            <h2 className='title'
-            onClick={() => OpenLink(props.history, props.match, props.collectionRoute)}>
-                {props.collectionName.toUpperCase()}
-            </h2>
+
+            {!isCategory ? (
+                <h2 className='title'
+                onClick={() => 
+                OpenLink(history, match, collectionRoute)}
+                >
+                    {collectionName.toUpperCase()}
+                </h2>
+                ) 
+                : 
+                (
+                <h2 className='title'>
+                    {collectionName.toUpperCase()}
+                </h2>
+                )}
+
              <div className='collection-items'>
-                {props.collectionItems
-                    .filter((collection_item, index) => (index < 4))
+                {collectionItems
+                    .filter((collection_item, index) =>
+                        isCategory ? (index > -1) : (index < 4)
+                        )          
                     .map(
                         (collection_item) => (
                         <CollectionItem
