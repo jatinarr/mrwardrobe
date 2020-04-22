@@ -15,7 +15,8 @@
 }
 .checkout-page > table{
     border-collapse: collapse;
-    margin: 20px auto 40px auto
+    width: 100%;
+    margin: 20px auto 40px auto;
 }
 
 .checkout-page > table > thead > tr > th {
