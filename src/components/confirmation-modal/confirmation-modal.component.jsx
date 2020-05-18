@@ -2,7 +2,8 @@ import React from 'react'
 import './confirmation-modal.styles.css'
 import confirmcheck from '../../images/checked.svg'
 
-const ConfirmationModal = () => {    
+const ConfirmationModal = (props) => {    
+        const {history} = props
         return(
                 <div className="confirmation-modal-wrapper">
                     <div className="confirmation-modal">
@@ -10,7 +11,12 @@ const ConfirmationModal = () => {
                             <img src={confirmcheck} alt="Confirmation"/>
                         </div>
                         <div className="confirmation-text">Order Successfully Placed</div>
-                        <div className="post-confirmation-details"></div>
+                        <div className="post-confirmation-details"
+                        onClick= { () =>  history.push("")
+                        }
+                        >
+                            Take me back to the homepage
+                        </div>
                     </div>
                 </div>
             )

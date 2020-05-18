@@ -1,7 +1,6 @@
 // Cart
 
 import React from 'react'
-import CustomButton from 'components/custom-button/custom-button.component'
 import CartItem from 'components/cart-item/cart-item.component'
 import {withRouter} from 'react-router-dom'
 import  {connect} from 'react-redux'
@@ -12,7 +11,6 @@ import{    CartOverviewContainer,
     TitleContainer,
     InfoContainer,
     CheckoutButtonContainer,
-    cbBtnContainer,
     ToCheckoutPage
     } from './cart.styles.jsx'
 

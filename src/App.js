@@ -68,9 +68,18 @@ class App extends React.Component{
                         () => this.props.currentUser ? 
                             (<Redirect to = '/' />):
                             (<SigninSignupPage />)
-                        }/>
+                        }
+                    />
 
                     <Route path='/checkout' component={CheckoutPage}/>
+                    {/* <Route 
+                    path='/checkout'
+                    render = { 
+                        () => Object.keys(this.props.cartContent.cartItems).length === 0  ? 
+                            (<Redirect to = '/' />):
+                            (<CheckoutPage />)
+                        }
+                    /> */}
 
                 </div>
             </div>
@@ -83,7 +92,8 @@ const mapStateToProps = (state) => {
     // console.log("mapStateToProps: ")
     // console.log(state)
         return({
-            currentUser: state.user.currentUser
+            currentUser: state.user.currentUser,
+            cartContent: state.cart.cartContent
         })
 }
 

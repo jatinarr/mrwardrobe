@@ -42,3 +42,14 @@
     margin-top: 15px;
     text-align: center;
 }
+
+.post-confirmation-details{
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+    /* color: #2C7AED; */
+    color: var(--main-text-color);
+    cursor: pointer;
+    text-decoration: underline;
+    line-height: 2px;
+}

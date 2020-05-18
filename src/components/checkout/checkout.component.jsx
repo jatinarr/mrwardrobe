@@ -8,9 +8,6 @@ import {ConfirmationModal} from '../../components/confirmation-modal/confirmatio
 import {BlurredOverlay} from '../../components/blurred-overlay/blurred-overlay.component'
 
 const Checkout = (props) => {
-    console.log(props);
-    
-
     const {cartItems,totalPrice} = props.cartContent
     const {
             removeItemGroup, 
@@ -113,7 +110,8 @@ const Checkout = (props) => {
                 null 
                 )}
                 {confirmModal.visibility ? (
-                    <ConfirmationModal />
+                    <ConfirmationModal 
+                    history={history}/>
                 ):(
                 null 
                 )}

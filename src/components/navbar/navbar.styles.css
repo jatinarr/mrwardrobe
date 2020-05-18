@@ -26,6 +26,10 @@
     cursor: pointer
 }
 
+.navbar .right > span:last-child {
+    cursor: default;
+}
+
 .navbar .right .cart{
     margin-left: 40px;
     margin-right: 15px;
