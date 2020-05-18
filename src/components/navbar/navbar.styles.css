@@ -61,7 +61,7 @@
     height: 17px;
     cursor: pointer;
 }
-.navbar .right .cart > input[type='checkbox']:checked + .cart-overview{
+.navbar .right .cart > input[type='checkbox']:checked + div{
     visibility: visible;
     opacity: 0.9;
 }

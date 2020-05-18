@@ -3,7 +3,7 @@ import Navbar from 'components/navbar/navbar.component'
 import HomePage from 'pages/homepage/homepage.component.jsx'
 import ShopPage from 'pages/shop/shop.component.jsx'
 import SigninSignupPage from 'pages/signin-signup-page/signin-signup-page.component'
-import CheckoutPage from 'pages/checkout/checkout.component'
+import {CheckoutPage} from 'pages/checkout/checkout.page'
 
 import './App.css';
 import {Route} from 'react-router-dom'

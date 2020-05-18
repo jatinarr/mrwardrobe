@@ -1,11 +1,20 @@
 // Cart
 
 import React from 'react'
-import './cart.styles.css'
 import CustomButton from 'components/custom-button/custom-button.component'
 import CartItem from 'components/cart-item/cart-item.component'
 import {withRouter} from 'react-router-dom'
 import  {connect} from 'react-redux'
+
+import{    CartOverviewContainer,
+    CartItemsWrapperContainer,
+    EmptyCartTextContainer,
+    TitleContainer,
+    InfoContainer,
+    CheckoutButtonContainer,
+    cbBtnContainer,
+    ToCheckoutPage
+    } from './cart.styles.jsx'
 
 // Opens the passed link using history.push()
 const OpenLink = (history, match, link) => {
@@ -17,8 +26,8 @@ const Cart = (props) => {
     // console.log(props)
     const {cartItems,totalItemsInCart} = props.cartContent
     return(
-        <div className="cart-overview">
-            <div className="cart-items-wrapper">
+        <CartOverviewContainer>
+            <CartItemsWrapperContainer>
               { totalItemsInCart !== 0 ? 
                     (
                         Object.keys(cartItems).map(
@@ -31,24 +40,23 @@ const Cart = (props) => {
                     )
                     :
                     (
-                        <div className="empty-cart-text"> 
-                            <p className="title"> Your cart looks empty </p>
-                            <p className="info"> Go ahead and add something!</p>
-                        </div>
+                        <EmptyCartTextContainer> 
+                            <TitleContainer> Your cart looks empty </TitleContainer>
+                            <InfoContainer> Go ahead and add something!</InfoContainer>
+                        </EmptyCartTextContainer>
                     )
                 }
 
-            </div>
+            </CartItemsWrapperContainer>
             { totalItemsInCart !== 0 ?
-               ( <div className="checkout-btn">
-                    <CustomButton 
-                    className="submit-btn btn"
+               ( <CheckoutButtonContainer>
+                    <ToCheckoutPage
                     value="GO TO CHECKOUT"
                     onClick= { () => OpenLink(props.history, props.match,'checkout')}
                     />
-                </div>) : (null)
+                </CheckoutButtonContainer>) : (null)
             }
-        </div>
+        </CartOverviewContainer>
     )
 }
 

@@ -1,7 +1,8 @@
 .checkout-page{
-    padding: 30px;
+    padding: 20px;
     width: 50%;
     margin: 0 auto;
+    /* position: relative; */
 }
 
 .checkout-page .checkout-footer .continue-shopping{

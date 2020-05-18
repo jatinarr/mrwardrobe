@@ -1,0 +1,11 @@
+.blurred-overlay{
+    position: absolute;
+    top: 0;
+    /* background-color: rgba(255, 255, 255, 0.9); */
+    background-color: #fafafa;
+    height: 100%;
+    width: 100%;
+    opacity: 0.8;
+    /* filter: blur(3px); */
+    z-index: 1;
+}

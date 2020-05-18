@@ -2,13 +2,14 @@ import React from 'react'
 import StripeCheckout from 'react-stripe-checkout';
 import {persistor} from '../../redux/store'
 
-const onToken = (history) => {
-    alert('Payment Successful')
+const onToken = (history,toggleConfirmModalVisibility) => {
     persistor.purge();
-    history.push("/")
+    // history.push("/")
+    document.body.style.overflow="hidden";
+    toggleConfirmModalVisibility(true)
 }
 
-const StripeCheckoutButton = ({history, price}) => {
+const StripeCheckoutButton = ({history, price, toggleConfirmModalVisibility}) => {
     const priceForStripe = price*100;
     const PUBLISHABLE_KEY = "pk_test_P8zq5zSsahQ1pFMCfswEUqvs00yRCRX8nL"
 
@@ -22,7 +23,7 @@ const StripeCheckoutButton = ({history, price}) => {
         description = {`Your total is $${price}`}
         amount = {priceForStripe}
         panelLabel = 'Pay Now'
-        token = {() => onToken(history)}
+        token = {() => onToken(history,toggleConfirmModalVisibility)}
         stripeKey={PUBLISHABLE_KEY}
         />
     )

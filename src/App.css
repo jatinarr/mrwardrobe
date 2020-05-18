@@ -20,11 +20,11 @@
     position: fixed;
     height: 80px;
     width: 100%;
+    z-index: 12;
     top: 0;
     position: fixed;
     right: 0;
     left: 0;
-    z-index: 9;
     -webkit-box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
     box-shadow: 0 4px 12px 0 rgba(0,0,0,.05);
     background-color: #fff;

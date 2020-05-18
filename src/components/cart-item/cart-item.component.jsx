@@ -1,19 +1,20 @@
 import React from 'react'
+import {CartItemContainer, ItemInfo} from './cart-item.styles'
 
 const CartItem = (props) => {
     // console.log("in cart item");
     // console.log(props)
     const {cartItem} = props
     return(
-            <div className="cart-item"> 
+            <CartItemContainer> 
                 <span className="item-img">
                     <img src={cartItem.item.imageUrl} alt="item" height="50" width="50"></img> 
                 </span>
-                <span className="item-info">
+                <ItemInfo>
                     <div> {cartItem.item.name}</div>
                     <div> {cartItem.quantity} x ${cartItem.item.price} </div>
-                </span>
-            </div>
+                </ItemInfo>
+            </CartItemContainer>
     )
 }
 
