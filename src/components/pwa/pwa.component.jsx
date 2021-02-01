@@ -17,7 +17,7 @@ class Pwa extends React.Component{
                 </h2>
 
                 <p>
-                    Mobile version coming <span> soon </span>.
+                    Mobile version coming <span> soon </span>
                 </p>
             </div>
         )
