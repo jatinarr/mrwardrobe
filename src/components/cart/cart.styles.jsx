@@ -17,6 +17,18 @@ const CartItemsWrapperContainer = styled.div`
     padding: 10px;
     height: 70%;
     overflow: scroll;
+    ::-webkit-scrollbar{
+        background: transparent;
+        width: 6px
+    }
+    ::-webkit-scrollbar-corner {
+    background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+    /* border-radius: 15px; */
+    background: #f0f0f0;
+    /* -webkit-border-radius: 15px; */
+    }
 `
 
 const EmptyCartTextContainer = styled.div`

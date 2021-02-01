@@ -7,7 +7,7 @@ import {withRouter} from 'react-router-dom'
 import {auth} from '../../firebase/firebase.utils'
 
 import {connect} from 'react-redux'
-import cartIcon from '../../images/cart-icon.svg'
+import cartIcon from '../../images/cart.svg'
 import mwLogo from '../../images/mw-dark.png'
 // import {persistor} from '../../redux/store'
 import {purgeCart} from '../../redux/cart/cart.actions'
@@ -35,8 +35,8 @@ const Navbar = (props) => {
                 onClick={ () => OpenLink(props.history, props.match, 'shop')}
                 > SHOP 
                 </span>
-                
-                <span> CONTACT </span>
+{/*                 
+                <span> CONTACT </span> */}
                 {
                     props.currentUser
                     ? (
@@ -62,9 +62,15 @@ const Navbar = (props) => {
                 
                 
                 <span className='cart'>
-                    <span className="img-wrapper">
-                        <img src={ cartIcon } alt="CART" /> 
-                        {
+                    <span className="img-wrapper" 
+                    style={{
+                        backgroundImage: `url(${ cartIcon })`
+                    }}
+                    >
+                        {/* <img src={ cartIcon } alt="CART" />     */}
+                       
+                    </span>
+                    {
                                 totalItemsInCart < 100 ? 
                                 (
                                     <span className="cart-item-count"> 
@@ -76,9 +82,6 @@ const Navbar = (props) => {
                                     </span>
                                 )
                         }
-                        
-                       
-                    </span>
                     <input type="checkbox"/>
                     <Cart/>
                 </span>

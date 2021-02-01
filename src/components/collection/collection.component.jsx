@@ -15,18 +15,18 @@ const Collection = (props) => {
         <div className='collection'>
 
             {!isCategory ? (
-                <h2 className='title'
+                <span className='title'
                 onClick={() => 
                 OpenLink(history, match, collectionRoute)}
                 >
                     {collectionName.toUpperCase()}
-                </h2>
+                </span>
                 ) 
                 : 
                 (
-                <h2 className='title'>
+                <span className='title'>
                     {collectionName.toUpperCase()}
-                </h2>
+                </span>
                 )}
 
              <div className='collection-items'>

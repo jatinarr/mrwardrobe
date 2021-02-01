@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from 'components/navbar/navbar.component'
+import Pwa from 'components/pwa/pwa.component'
 import HomePage from 'pages/homepage/homepage.component.jsx'
 import ShopPage from 'pages/shop/shop.component.jsx'
 import SigninSignupPage from 'pages/signin-signup-page/signin-signup-page.component'
@@ -13,13 +14,40 @@ import {auth,createUserProfileDocument } from './firebase/firebase.utils'
 
 import {connect} from 'react-redux'
 import {setCurrentUser} from './redux/user/user.actions'
+import axios from 'axios'
 
 class App extends React.Component{
     unsubscribeFromAuth = null
 
     componentDidMount(){
         const {setCurrentUser} = this.props
-    
+
+        axios.get('https://firestore.googleapis.com/v1/projects/mrwardrobe20/databases/(default)/documents/users'
+        )
+        .then(response => console.log(response))
+
+        axios.post('https://firestore.googleapis.com/v1/projects/mrwardrobe20/databases/(default)/documents/users',
+            {
+                fields: {
+                    displayName: {stringValue: 'master'},
+                    email: {stringValue: 'master@gmail.com'},
+                    createdAt: {timestampValue: new Date()}
+                    
+                }
+            }
+        )
+        .then(response => {console.log(response)})
+        // .then(users => 
+        //     users.documents.map(
+        //         user => {
+        //             const {displayName,email} = user.fields
+        //             console.log(displayName.stringValue)
+        //             console.log(email.stringValue)
+        //         }
+        //     )
+        // )
+
+
         // subscription always open between firebase and our app
         // onAuthStateChanged always running to check if there are any
         // changes in the state of auth object i.e whether the user
@@ -53,6 +81,9 @@ class App extends React.Component{
     render(){
         return (
             <div className='app'> 
+                <div className="pwa"> 
+                    <Pwa/>
+                 </div>
                 <div className='fixed-component'>
                     <Navbar/>
                 </div>

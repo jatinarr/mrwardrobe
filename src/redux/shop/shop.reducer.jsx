@@ -221,7 +221,7 @@ const INITIAL_STATE = {
                         },
                         {
                             id: 32,
-                            name: 'Black & White Longsleeve',
+                            name: 'Black-White Longsleeve',
                             imageUrl: 'https://i.ibb.co/55z32tw/long-sleeve.png',
                             price: 25
                         },

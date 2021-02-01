@@ -35,6 +35,7 @@
     height: 100%;
     position: absolute;
     background-size: cover;
+    background-position: center
 }
 
 .menuitem .item-highlight .title{

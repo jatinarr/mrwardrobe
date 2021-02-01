@@ -8,8 +8,9 @@
 
 .collection-item .bgImage {
     grid-area: coll-item-img;
-    height: 400px;
+    height: 350px;
     background-size: cover;
+    background-position: center
 }
 
 .collection-item .details {

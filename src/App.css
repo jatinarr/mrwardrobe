@@ -3,7 +3,26 @@
     --dynamic-component-height: calc(100vh - var(--fixed-component-height));
 } */
 
+
 * { padding: 0; margin: 0}
+
+@media(max-width:580px){
+    .pwa{
+        display: block !important
+    }
+
+    .fixed-component, .dynamic-component{
+        display: none
+    }
+
+    .app{
+        background-color: #fafafa;
+    }
+}
+
+.pwa{
+        display: none
+}
 .app {
     display: grid;
     grid-template-areas:

@@ -6,11 +6,12 @@
     /* letter-spacing: 0.02em; */
     font-size: 25px;
     font-weight: 300;
-    margin: 10px 0 10px 0;
+    /* margin: 10px 0 10px 0; */
     /* cursor: pointer */
 }
 .collection .collection-items{
     /* grid-area: coll-items; */
+    margin-top: 10px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 20px;

@@ -22,7 +22,7 @@
 }
 
 .navbar .right > span{
-    margin-right: 25px;
+    margin-right: 40px;
     cursor: pointer
 }
 
@@ -32,23 +32,47 @@
 
 .navbar .right .cart{
     margin-left: 40px;
-    margin-right: 15px;
+    margin-right: 0px;
     position: relative;
 }
 
-.navbar .right .cart .img-wrapper> img{
-    width: 20px;
+.navbar .right .cart .img-wrapper{
+    /* width: 20px;
     position: absolute;
     right: 0;
-    top: -2px;
+    top: -2px; */
+    float: right;
+    text-align: center;
+    /* display: inline-block; */
+    background-image: url(/static/media/cart.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 16px;
+    height: 16px;
+    background-position: center;
 }
 
-.navbar .right .cart > .img-wrapper > .cart-item-count{
-    position: absolute;
-    font-size: 11px;
-    width: 100%;
+.navbar .right .cart > .cart-item-count{
+    /* position: absolute; */
+    /* font-size: 11px; */
+    /* width: 100%;
     text-align: center;
-    top: 0.5em;
+    top: 0.5em; */
+    display: flex;
+    height: 20px;
+    line-height: 20px;
+    position: absolute;
+    right: -36px;
+    top: -14px;
+    width: 20px;
+    background: #424455;
+    color: #f9f9f9;
+    border-radius: 16px;
+    white-space: nowrap;
+    font-size: 12px;
+    font-weight: 600;
+    -webkit-box-pack: center;
+    justify-content: center;
 }
 
 .navbar .right .cart > .img-wrapper > .max-count-limit{
@@ -59,11 +83,13 @@
 
 .navbar .right .cart > input[type='checkbox']{
     z-index: 2;
-    position: relative;
+    position: absolute;
     opacity: 0;
-    width: 20px;
-    height: 17px;
+    /* width: 100%; */
+    height: 100%;
     cursor: pointer;
+    /* text-align: center; */
+    /* align-items: center; */
 }
 .navbar .right .cart > input[type='checkbox']:checked + div{
     visibility: visible;
