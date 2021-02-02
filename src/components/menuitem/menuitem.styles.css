@@ -18,10 +18,13 @@
 }
 
 .menuitem .item-highlight{
+    font-size: 1vw;
     padding: 20px;
     margin: 0 auto;
-    width: 120px;
-    height: 100px;  
+    width: 10vw;
+    height: 6.5vw;
+    /* width: 120px;
+    height: 100px;   */
     display: flex;
     justify-content: center;
     align-items: center;
